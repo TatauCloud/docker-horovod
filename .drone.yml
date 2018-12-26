@@ -1,7 +1,7 @@
 pipeline:
   py36:
     image: plugins/docker
-    secrets: [docker_username, docker_password]
+    # secrets: [docker_username, docker_password]
     repo: tataucloud/python-horovod
     registry: docker.io
     dockerfile: Dockerfile
@@ -12,7 +12,7 @@ pipeline:
 
   py37:
     image: plugins/docker
-    secrets: [docker_username, docker_password]
+    # secrets: [docker_username, docker_password]
     repo: tataucloud/python-horovod
     registry: docker.io
     dockerfile: Dockerfile
