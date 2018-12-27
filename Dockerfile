@@ -2,11 +2,14 @@ ARG PYTHON_VERSION
 
 FROM tataucloud/python-cuda:${PYTHON_VERSION}
 
+LABEL maintainer="tatau.io"
+
 ENV TENSORFLOW_VERSION=1.10.0
 ENV KERAS_VERSION=2.2.2
 ENV H5PY_VERSION=2.8.0
 ENV TORCH_VERSION=0.4.1
 ENV TORCHVISION_VERSION=0.2.1
+ENV HOROVOD_VERSION=0.15.2
 
 # Install Open MPI
 RUN mkdir /tmp/openmpi && \
@@ -54,5 +57,5 @@ RUN pip install --no-cache-dir \
     torchvision==${TORCHVISION_VERSION}
 
 # Install horovod
-RUN HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod
+RUN HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod==${HOROVOD_VERSION}
 
